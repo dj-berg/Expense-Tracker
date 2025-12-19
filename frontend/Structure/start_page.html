@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ======================================================
+         START / LANDING PAGE METADATA & STYLES
+         ====================================================== -->
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ======================================================
+         CENTERED LANDING CONTAINER
+         Purpose: Introduce the app and route users to auth
+         ====================================================== -->
+    <main class="center">
+        <h1>Expense Tracker</h1>
+
+        <!-- ==============================================
+             APPLICATION TAGLINE
+             Purpose: Communicate the app’s value proposition
+             ============================================== -->
+        <p class="subtitle">Work Smarter. Burn Out Less.</p>
+
+        <!-- ==============================================
+             PRIMARY ACTIONS
+             Purpose: Direct users to login or sign up
+             ============================================== -->
+        <div class="actions">
+            <a href="/login">
+                <button type="button">Login</button>
+            </a>
+
+            <a href="/signup">
+                <button type="button">Sign Up</button>
+            </a>
+        </div>
+    </main>
+
+    <!-- ======================================================
+     Footer
+     ====================================================== -->
+    <footer class="site-footer">
+    © 2025 Daniel J. Berg | Built with Python, HTML, CSS, and JavaScript | All Rights Reserved
+    </footer>
+
+</body>
+</html>

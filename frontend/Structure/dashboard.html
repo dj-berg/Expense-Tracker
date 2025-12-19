@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================
+         DASHBOARD PAGE METADATA & GLOBAL DEPENDENCIES
+         ====================================================== -->
+    <meta charset="UTF-8">
+    <title>Dashboard | Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External Chart Library (Visualization Only) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- ======================================================
+     APPLICATION HEADER / NAVIGATION
+     ====================================================== -->
+<header>
+    <h1>Expense Tracker</h1>
+    <a href="/logout">Logout</a>
+</header>
+
+<!-- ======================================================
+     MAIN DASHBOARD CONTENT
+     ====================================================== -->
+<main>
+
+    <!-- ==================================================
+         EXPENSE INPUT FORM
+         Purpose: Collect new expense data from the user
+         ================================================== -->
+    <section>
+        <h2>Add Expense</h2>
+
+        <form method="POST">
+            <input
+                type="number"
+                step="0.01"
+                name="amount"
+                placeholder="Amount ($)"
+                required
+            >
+
+            <input
+                type="text"
+                name="category"
+                placeholder="Category (Food, Rent, etc.)"
+                required
+            >
+
+            <input
+                type="date"
+                name="date"
+                required
+            >
+
+            <button type="submit">Add Expense</button>
+        </form>
+    </section>
+
+    <!-- ==================================================
+         WEEK SELECTION FILTER
+         Purpose: Choose which week of data to analyze
+         ================================================== -->
+    <section>
+        <h2>Weekly Overview</h2>
+
+        <form method="GET">
+            <input
+                type="week"
+                name="week"
+                value="{{ selected_week }}"
+                required
+            >
+            <button type="submit">View Week</button>
+        </form>
+    </section>
+
+    <!-- ==================================================
+         WEEKLY SUMMARY METRICS
+         Purpose: Display computed analytics from SQL
+         ================================================== -->
+    <section>
+        <h2>This Week</h2>
+
+        <p>
+            <strong>Total Spent:</strong>
+            ${{ total_spent or "0.00" }}
+        </p>
+
+        <p>
+            <strong>Top Category:</strong>
+            {{ top_category or "N/A" }}
+        </p>
+    </section>
+
+    <!-- ==================================================
+         VISUAL ANALYTICS (PIE CHART)
+         Purpose: Visualize spending distribution by category
+         ================================================== -->
+    <section>
+        <h2>Spending Breakdown</h2>
+
+        {% if categories and amounts %}
+            <canvas
+                id="expenseChart"
+                data-categories='{{ categories | tojson }}'
+                data-amounts='{{ amounts | tojson }}'>
+            </canvas>
+        {% else %}
+            <p>No expenses recorded for this week.</p>
+        {% endif %}
+    </section>
+
+</main>
+
+<!-- ======================================================
+     DASHBOARD-SPECIFIC JAVASCRIPT
+     Purpose: Render chart from server-provided data
+     ====================================================== -->
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+<!-- ======================================================
+     Footer
+     ====================================================== -->
+<footer class="site-footer">
+    © 2025 Daniel J. Berg | Built with Python, HTML, CSS, and JavaScript | All Rights Reserved
+</footer>
+
+</body>
+</html>

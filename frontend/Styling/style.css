@@ -1,0 +1,241 @@
+/* ======================================================
+   GLOBAL RESET & BASE TYPOGRAPHY
+   ====================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+/* ======================================================
+   BASE PAGE LAYOUT (STICKY FOOTER ENABLED)
+   ====================================================== */
+
+body {
+    min-height: 100vh;
+    background: #f5f7fa;
+    color: #222;
+    line-height: 1.5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ======================================================
+   MAIN CONTENT WRAPPER
+   ====================================================== */
+
+main {
+    flex: 1;
+}
+
+
+/* ======================================================
+   CENTERED AUTH / LANDING CONTAINER (TRUE SQUARE)
+   Purpose: Start, login, signup
+   ====================================================== */
+
+.center {
+    background: #ffffff;
+
+    width: 100%;
+    max-width: 360px;
+    max-height: 360px;
+
+    padding: 1.75rem;
+
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    text-align: center;
+
+    margin: auto;
+    margin-top: 12vh;
+}
+
+
+/* ======================================================
+   HEADINGS & TEXT
+   ====================================================== */
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+}
+
+
+/* ======================================================
+   FORMS & INPUTS
+   ====================================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+input {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+
+/* ======================================================
+   BUTTONS
+   ====================================================== */
+
+button {
+    margin-top: 0.6rem;
+    padding: 0.65rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    background: #4a90e2;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b7fd4;
+}
+
+
+/* ======================================================
+   LINKS & ERROR MESSAGES
+   ====================================================== */
+
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #d9534f;
+}
+
+
+/* ======================================================
+   DASHBOARD HEADER
+   ====================================================== */
+
+header {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+header a {
+    position: absolute;
+    right: 2rem;
+    font-size: 0.9rem;
+}
+
+
+/* ======================================================
+   DASHBOARD MAIN GRID
+   ====================================================== */
+
+main:not(.center) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ======================================================
+   DASHBOARD SECTIONS / CARDS
+   ====================================================== */
+
+section {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ======================================================
+   GLOBAL FOOTER (MATCHES HEADER)
+   ====================================================== */
+
+.site-footer {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+}
+
+
+/* ======================================================
+   MOBILE OPTIMIZATION
+   ====================================================== */
+
+@media (max-width: 600px) {
+    .center {
+        max-width: 100%;
+        max-height: none;
+        margin-top: 8vh;
+        padding: 1.75rem 1.5rem;
+    }
+
+    main:not(.center) {
+        padding: 1.5rem 1rem;
+    }
+
+    .site-footer {
+        font-size: 0.75rem;
+    }
+}

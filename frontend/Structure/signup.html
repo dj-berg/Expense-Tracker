@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ======================================================
+         SIGN-UP PAGE METADATA & STYLES
+         ====================================================== -->
+    <meta charset="UTF-8">
+    <title>Sign Up | Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ======================================================
+         CENTERED SIGN-UP CONTAINER
+         Purpose: Register new users securely
+         ====================================================== -->
+    <main class="center">
+        <h1>Create Account</h1>
+
+        <!-- ==============================================
+             SIGN-UP FORM
+             Purpose: Collect new user credentials
+             ============================================== -->
+        <form method="POST">
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                required
+            >
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <!-- ==============================================
+             ERROR FEEDBACK
+             Purpose: Display registration failures
+             ============================================== -->
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <!-- ==============================================
+             NAVIGATION LINK
+             Purpose: Redirect existing users to login
+             ============================================== -->
+        <p>
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+    </main>
+
+    <!-- ======================================================
+     Footer
+     ====================================================== -->
+    <footer class="site-footer">
+    © 2025 Daniel J. Berg | Built with Python, HTML, CSS, and JavaScript | All Rights Reserved
+    </footer>
+
+</body>
+</html>
